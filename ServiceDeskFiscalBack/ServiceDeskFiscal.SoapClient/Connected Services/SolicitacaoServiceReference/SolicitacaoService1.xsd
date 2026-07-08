@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServiceDeskFiscal.SoapService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServiceDeskFiscal.SoapService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="CriarSolicitacaoRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descricao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoSolicitacao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UsuarioSolicitante" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CriarSolicitacaoRequest" nillable="true" type="tns:CriarSolicitacaoRequest" />
+  <xs:complexType name="CriarSolicitacaoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mensagem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CriarSolicitacaoResponse" nillable="true" type="tns:CriarSolicitacaoResponse" />
+  <xs:complexType name="ObterSolicitacaoRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObterSolicitacaoRequest" nillable="true" type="tns:ObterSolicitacaoRequest" />
+  <xs:complexType name="ObterSolicitacaoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Mensagem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Solicitacao" nillable="true" type="tns:SolicitacaoDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObterSolicitacaoResponse" nillable="true" type="tns:ObterSolicitacaoResponse" />
+  <xs:complexType name="SolicitacaoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataCriacao" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataProcessamento" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Descricao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResultadoProcessamento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoSolicitacao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UsuarioSolicitante" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SolicitacaoDto" nillable="true" type="tns:SolicitacaoDto" />
+  <xs:complexType name="ListarSolicitacoesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Solicitacoes" nillable="true" type="tns:ArrayOfSolicitacaoDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarSolicitacoesResponse" nillable="true" type="tns:ListarSolicitacoesResponse" />
+  <xs:complexType name="ArrayOfSolicitacaoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SolicitacaoDto" nillable="true" type="tns:SolicitacaoDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSolicitacaoDto" nillable="true" type="tns:ArrayOfSolicitacaoDto" />
+  <xs:complexType name="ProcessarSolicitacaoRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProcessarSolicitacaoRequest" nillable="true" type="tns:ProcessarSolicitacaoRequest" />
+  <xs:complexType name="ProcessarSolicitacaoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mensagem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResultadoProcessamento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProcessarSolicitacaoResponse" nillable="true" type="tns:ProcessarSolicitacaoResponse" />
+</xs:schema>
